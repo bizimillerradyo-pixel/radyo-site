@@ -1,139 +1,64 @@
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-<meta charset="UTF-8">
-<title>Bizim İller Radyo</title>
+export default function RadioPlayer() {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const audioRef = useRef(null);
 
-<style>
-body {
-    margin:0;
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-    background: radial-gradient(circle at top, #1e3c72, #0a192f);
-    color:white;
-}
-
-/* NAVBAR */
-.nav {
-    display:flex;
-    justify-content:space-between;
-    padding:20px 50px;
-    font-size:14px;
-    opacity:0.8;
-}
-
-/* ANA ALAN */
-.hero {
-    height:80vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-}
-
-/* LOGO */
-.logo {
-    width:120px;
-    height:120px;
-    border:2px solid rgba(255,255,255,0.3);
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:36px;
-    backdrop-filter: blur(10px);
-}
-
-/* BAŞLIK */
-h1 {
-    font-size:64px;
-    margin:20px 0 10px;
-    letter-spacing:3px;
-}
-
-.sub {
-    opacity:0.7;
-    margin-bottom:40px;
-}
-
-/* PLAY */
-.play {
-    width:90px;
-    height:90px;
-    border-radius:50%;
-    border:none;
-    background:white;
-    color:#0a192f;
-    font-size:30px;
-    cursor:pointer;
-    transition:0.3s;
-}
-
-.play:hover {
-    transform:scale(1.15);
-}
-
-/* STATUS */
-.status {
-    margin-top:20px;
-    font-size:14px;
-    opacity:0.6;
-}
-
-/* ALT BİLGİ */
-.footer {
-    text-align:center;
-    padding:30px;
-    opacity:0.5;
-    font-size:13px;
-}
-</style>
-</head>
-
-<body>
-
-<div class="nav">
-    <div>📡 CANLI</div>
-    <div>📞 0532 123 45 67</div>
-</div>
-
-<div class="hero">
-
-    <div class="logo">🎤</div>
-
-    <h1>BİZİM İLLER</h1>
-    <div class="sub">Memleketin Sesi</div>
-
-    <button class="play" onclick="toggleRadio()">▶</button>
-
-    <div class="status" id="status">Hazır</div>
-
-</div>
-
-<div class="footer">
-Bizim İller Radyo © 2026
-</div>
-
-<audio id="radio" src="https://radyo.yayindakiler.com/AudioPlayer/denizlibizimiller"></audio>
-
-<script>
-let isPlaying = false;
-let radio = document.getElementById("radio");
-
-function toggleRadio() {
-    if(!isPlaying){
-        radio.play();
-        document.querySelector(".play").innerText = "⏸";
-        document.getElementById("status").innerText = "Canlı Yayın";
-        isPlaying = true;
+  const toggle = () => {
+    if (!audioRef.current) return;
+    if (!isPlaying) {
+      audioRef.current.play();
+      setIsPlaying(true);
     } else {
-        radio.pause();
-        document.querySelector(".play").innerText = "▶";
-        document.getElementById("status").innerText = "Durduruldu";
-        isPlaying = false;
+      audioRef.current.pause();
+      setIsPlaying(false);
     }
-}
-</script>
+  };
 
-</body>
-</html>
+  return (
+    <div className="h-screen w-full flex items-center justify-center bg-gradient-to-br from-[#0a192f] via-[#112a4e] to-[#1e3c72] text-white relative overflow-hidden">
+      {/* Glow */}
+      <div className="absolute w-[600px] h-[600px] bg-blue-500/20 blur-[120px] top-[-200px] left-[-200px]" />
+
+      {/* Card */}
+      <div className="backdrop-blur-2xl bg-white/5 border border-white/10 shadow-2xl rounded-3xl p-10 w-[380px] text-center relative">
+        {/* Logo */}
+        <div className="w-28 h-28 mx-auto rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-4xl shadow-lg">
+          🎤
+        </div>
+
+        <h1 className="text-4xl font-bold tracking-widest mt-6">BİZİM İLLER</h1>
+        <p className="text-sm opacity-70 mt-2">Memleketin Sesi • Denizli</p>
+
+        {/* Play Button */}
+        <button
+          onClick={toggle}
+          className="mt-8 w-24 h-24 rounded-full bg-white text-[#0a192f] text-3xl shadow-xl hover:scale-110 transition-all"
+        >
+          {isPlaying ? "⏸" : "▶"}
+        </button>
+
+        {/* Status */}
+        <div className="flex items-center justify-center gap-2 mt-6 text-sm opacity-80">
+          <span className={`w-2.5 h-2.5 rounded-full ${isPlaying ? 'bg-red-500 animate-pulse' : 'bg-gray-400'}`} />
+          {isPlaying ? "Canlı Yayın Aktif" : "Yayın Bekleniyor"}
+        </div>
+
+        {/* Audio Visualizer Fake */}
+        <div className="flex items-end justify-center gap-[3px] mt-6 h-10">
+          {[...Array(12)].map((_, i) => (
+            <div
+              key={i}
+              className={`w-1 bg-blue-400 rounded-full ${isPlaying ? 'animate-pulse' : 'opacity-30'}`}
+              style={{ height: `${Math.random() * 100}%` }}
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* Audio */}
+      <audio
+        ref={audioRef}
+        src="https://radyo.yayindakiler.com/AudioPlayer/denizlibizimiller"
+      />
+    </div>
+  );
+}
