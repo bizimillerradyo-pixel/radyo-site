@@ -9,7 +9,7 @@
 body{
     margin:0;
     font-family:-apple-system, BlinkMacSystemFont, sans-serif;
-    background: radial-gradient(circle at top, #0a192f, #050b18);
+    background: radial-gradient(circle at top, #0a192f, #02060f);
     color:white;
     height:100vh;
     display:flex;
@@ -18,83 +18,118 @@ body{
     overflow:hidden;
 }
 
+/* SOFT AMBIENT GLOW */
 .bg-glow{
     position:absolute;
-    width:700px;
-    height:700px;
-    background:rgba(120,180,255,0.08);
-    filter:blur(140px);
-    top:-250px;
-    left:-250px;
+    width:800px;
+    height:800px;
+    background:rgba(120,170,255,0.06);
+    filter:blur(160px);
+    top:-300px;
+    left:-300px;
 }
 
+/* PREMIUM CARD */
 .card{
-    width:400px;
-    padding:30px;
-    border-radius:28px;
-    background:rgba(255,255,255,0.04);
-    border:1px solid rgba(255,255,255,0.08);
-    backdrop-filter: blur(25px);
+    width:420px;
+    padding:35px 30px;
+    border-radius:32px;
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(255,255,255,0.06);
+    backdrop-filter: blur(30px);
     text-align:center;
-    box-shadow:0 25px 70px rgba(0,0,0,0.6);
+    box-shadow:0 30px 90px rgba(0,0,0,0.7);
+    position:relative;
 }
 
+/* LOGO */
 .logo{
-    width:100px;
-    height:100px;
+    width:110px;
+    height:110px;
     margin:auto;
     border-radius:50%;
     overflow:hidden;
     border:1px solid rgba(255,255,255,0.15);
+    background:rgba(255,255,255,0.04);
+    display:flex;
+    align-items:center;
+    justify-content:center;
 }
 
 .logo img{
     width:100%;
     height:100%;
     object-fit:contain;
-    padding:10px;
+    padding:12px;
 }
 
+/* TITLE */
 h1{
-    margin:15px 0 5px;
-    font-size:28px;
-    letter-spacing:2px;
+    margin:18px 0 6px;
+    font-size:30px;
+    letter-spacing:3px;
+    font-weight:500;
 }
 
 .sub{
     font-size:13px;
-    opacity:0.6;
+    opacity:0.5;
     margin-bottom:20px;
 }
 
-/* IFRAME PLAYER */
+/* DIVIDER */
+.divider{
+    width:40px;
+    height:2px;
+    background:rgba(255,255,255,0.2);
+    margin:10px auto 20px;
+    border-radius:2px;
+}
+
+/* PLAYER */
 .player{
-    border-radius:15px;
+    border-radius:18px;
     overflow:hidden;
-    margin-top:10px;
+    background:rgba(0,0,0,0.25);
+    border:1px solid rgba(255,255,255,0.05);
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
 }
 
 .player iframe{
     width:100%;
     height:120px;
     border:0;
+    filter: grayscale(20%) contrast(110%);
 }
 
 /* CONTACT */
 .contact{
-    margin-top:15px;
-    padding:12px;
-    border-radius:12px;
-    background:rgba(255,255,255,0.05);
-    border:1px solid rgba(255,255,255,0.08);
+    margin-top:18px;
+    padding:14px;
+    border-radius:14px;
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.07);
     font-size:13px;
+    transition:0.3s;
+}
+
+.contact:hover{
+    background:rgba(255,255,255,0.07);
 }
 
 .contact span{
     display:block;
     font-size:11px;
-    opacity:0.6;
-    margin-bottom:5px;
+    opacity:0.5;
+    margin-bottom:6px;
+    letter-spacing:1px;
+}
+
+/* FOOT NOTE */
+.footer{
+    margin-top:15px;
+    font-size:11px;
+    opacity:0.35;
 }
 
 </style>
@@ -113,14 +148,18 @@ h1{
     <h1>BİZİM İLLER</h1>
     <div class="sub">Tasavvufi Radyo • Sükunetin Sesi</div>
 
+    <div class="divider"></div>
+
     <div class="player">
         <iframe src="https://radyo.yayindakiler.com/AudioPlayer/denizlibizimiller?mount=&"></iframe>
     </div>
 
     <div class="contact">
-        <span>İletişim Numarası</span>
+        <span>İLETİŞİM</span>
         0532 123 45 67
     </div>
+
+    <div class="footer">Bizim İller Radyo © 2026</div>
 
 </div>
 
