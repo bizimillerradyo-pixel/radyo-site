@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bizim İller Radyo 97.3</title>
+<title>Bizim İller Radyo</title>
 
 <style>
 body{
     margin:0;
     font-family:-apple-system, BlinkMacSystemFont, sans-serif;
-    background: radial-gradient(circle at top, #0a192f, #000814);
+    background: radial-gradient(circle at top, #0a192f, #050b18);
     color:white;
     height:100vh;
     display:flex;
@@ -18,12 +18,12 @@ body{
     overflow:hidden;
 }
 
-/* BACKGROUND GLOW */
+/* SOFT GLOW */
 .bg-glow{
     position:absolute;
     width:700px;
     height:700px;
-    background:rgba(0,140,255,0.15);
+    background:rgba(120,180,255,0.08);
     filter:blur(140px);
     top:-250px;
     left:-250px;
@@ -31,14 +31,14 @@ body{
 
 /* CARD */
 .card{
-    width:360px;
-    padding:40px;
-    border-radius:30px;
-    background:rgba(255,255,255,0.05);
-    border:1px solid rgba(255,255,255,0.1);
+    width:380px;
+    padding:35px;
+    border-radius:28px;
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.08);
     backdrop-filter: blur(25px);
     text-align:center;
-    box-shadow:0 20px 60px rgba(0,0,0,0.6);
+    box-shadow:0 25px 70px rgba(0,0,0,0.6);
     position:relative;
 }
 
@@ -46,63 +46,70 @@ body{
 .logo{
     width:110px;
     height:110px;
-    border-radius:50%;
     margin:auto;
-    background:rgba(255,255,255,0.08);
+    border-radius:50%;
+    overflow:hidden;
+    border:1px solid rgba(255,255,255,0.15);
+    background:rgba(255,255,255,0.05);
     display:flex;
     align-items:center;
     justify-content:center;
-    font-size:40px;
-    border:1px solid rgba(255,255,255,0.2);
+}
+
+.logo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
 }
 
 h1{
-    margin:20px 0 5px;
-    letter-spacing:3px;
-    font-size:34px;
+    margin:18px 0 5px;
+    letter-spacing:2px;
+    font-size:32px;
+    font-weight:600;
 }
 
 .sub{
-    opacity:0.6;
-    font-size:14px;
+    opacity:0.55;
+    font-size:13px;
 }
 
-/* PLAY BUTTON */
+/* PLAY */
 .play{
-    margin-top:30px;
-    width:90px;
-    height:90px;
+    margin-top:25px;
+    width:85px;
+    height:85px;
     border-radius:50%;
     border:none;
-    font-size:30px;
+    font-size:28px;
     cursor:pointer;
-    background:white;
+    background:#ffffff;
     color:#0a192f;
-    box-shadow:0 10px 30px rgba(0,0,0,0.4);
-    transition:0.3s;
+    box-shadow:0 10px 30px rgba(0,0,0,0.35);
+    transition:0.25s;
 }
 
 .play:hover{
-    transform:scale(1.1);
+    transform:scale(1.08);
 }
 
 /* STATUS */
 .status{
-    margin-top:20px;
-    font-size:13px;
+    margin-top:18px;
+    font-size:12px;
     display:flex;
     justify-content:center;
     align-items:center;
     gap:8px;
-    opacity:0.8;
+    opacity:0.75;
 }
 
 .dot{
-    width:10px;
-    height:10px;
+    width:9px;
+    height:9px;
     border-radius:50%;
-    background:red;
-    animation:pulse 1s infinite;
+    background:#ff3b3b;
+    animation:pulse 1.2s infinite;
 }
 
 @keyframes pulse{
@@ -110,38 +117,73 @@ h1{
     50%{opacity:0.2}
 }
 
+/* VOLUME */
+.volume{
+    margin-top:22px;
+    text-align:left;
+}
+
+.volume label{
+    font-size:12px;
+    opacity:0.6;
+}
+
+input[type=range]{
+    width:100%;
+    margin-top:8px;
+    accent-color:#4da3ff;
+}
+
+/* CONTACT */
+.contact{
+    margin-top:18px;
+    padding:12px;
+    border-radius:12px;
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.08);
+    font-size:13px;
+    opacity:0.85;
+}
+
+.contact span{
+    opacity:0.6;
+    font-size:11px;
+    display:block;
+    margin-bottom:5px;
+}
+
 /* VISUALIZER */
 .visualizer{
     display:flex;
     justify-content:center;
     gap:3px;
-    margin-top:25px;
-    height:35px;
+    margin-top:20px;
+    height:28px;
     align-items:flex-end;
 }
 
 .bar{
     width:3px;
     height:10px;
-    background:#4da3ff;
+    background:#6fb3ff;
     border-radius:5px;
-    opacity:0.7;
-    animation:move 1s infinite ease-in-out;
+    opacity:0.6;
+    animation:move 1.1s infinite ease-in-out;
 }
 
 .bar:nth-child(2){animation-delay:0.1s}
 .bar:nth-child(3){animation-delay:0.2s}
 .bar:nth-child(4){animation-delay:0.3s}
 .bar:nth-child(5){animation-delay:0.4s}
-.bar:nth-child(6){animation-delay:0.5s}
-.bar:nth-child(7){animation-delay:0.2s}
-.bar:nth-child(8){animation-delay:0.3s}
+.bar:nth-child(6){animation-delay:0.2s}
+.bar:nth-child(7){animation-delay:0.3s}
+.bar:nth-child(8){animation-delay:0.1s}
 .bar:nth-child(9){animation-delay:0.4s}
-.bar:nth-child(10){animation-delay:0.1s}
+.bar:nth-child(10){animation-delay:0.2s}
 
 @keyframes move{
-    0%,100%{height:8px}
-    50%{height:35px}
+    0%,100%{height:6px}
+    50%{height:26px}
 }
 
 </style>
@@ -153,10 +195,12 @@ h1{
 
 <div class="card">
 
-    <div class="logo">🎤</div>
+    <div class="logo">
+        <img src="logo.png" alt="logo">
+    </div>
 
     <h1>BİZİM İLLER</h1>
-    <div class="sub">Memleketin Sesi • Denizli</div>
+    <div class="sub">Tasavvufi Radyo • Sükunetin Sesi</div>
 
     <button class="play" onclick="toggleRadio()" id="btn">▶</button>
 
@@ -165,17 +209,19 @@ h1{
         <span id="status">Yayın bekleniyor</span>
     </div>
 
+    <div class="volume">
+        <label>Ses Seviyesi</label>
+        <input type="range" min="0" max="1" step="0.01" value="1" oninput="setVolume(this.value)">
+    </div>
+
+    <div class="contact">
+        <span>İletişim Numarası</span>
+        0532 123 45 67
+    </div>
+
     <div class="visualizer">
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
+        <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+        <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
     </div>
 
 </div>
@@ -201,154 +247,11 @@ function toggleRadio(){
         isPlaying = false;
     }
 }
-</script>
 
-</body>
-</html>
-    font-size:34px;
-}
-
-.sub{
-    opacity:0.6;
-    font-size:14px;
-}
-
-/* PLAY BUTTON */
-.play{
-    margin-top:30px;
-    width:90px;
-    height:90px;
-    border-radius:50%;
-    border:none;
-    font-size:30px;
-    cursor:pointer;
-    background:white;
-    color:#0a192f;
-    box-shadow:0 10px 30px rgba(0,0,0,0.4);
-    transition:0.3s;
-}
-
-.play:hover{
-    transform:scale(1.1);
-}
-
-/* STATUS */
-.status{
-    margin-top:20px;
-    font-size:13px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:8px;
-    opacity:0.8;
-}
-
-.dot{
-    width:10px;
-    height:10px;
-    border-radius:50%;
-    background:red;
-    animation:pulse 1s infinite;
-}
-
-@keyframes pulse{
-    0%,100%{opacity:1}
-    50%{opacity:0.2}
-}
-
-/* VISUALIZER */
-.visualizer{
-    display:flex;
-    justify-content:center;
-    gap:3px;
-    margin-top:25px;
-    height:35px;
-    align-items:flex-end;
-}
-
-.bar{
-    width:3px;
-    height:10px;
-    background:#4da3ff;
-    border-radius:5px;
-    opacity:0.7;
-    animation:move 1s infinite ease-in-out;
-}
-
-.bar:nth-child(2){animation-delay:0.1s}
-.bar:nth-child(3){animation-delay:0.2s}
-.bar:nth-child(4){animation-delay:0.3s}
-.bar:nth-child(5){animation-delay:0.4s}
-.bar:nth-child(6){animation-delay:0.5s}
-.bar:nth-child(7){animation-delay:0.2s}
-.bar:nth-child(8){animation-delay:0.3s}
-.bar:nth-child(9){animation-delay:0.4s}
-.bar:nth-child(10){animation-delay:0.1s}
-
-@keyframes move{
-    0%,100%{height:8px}
-    50%{height:35px}
-}
-
-</style>
-</head>
-
-<body>
-
-<div class="bg-glow"></div>
-
-<div class="card">
-
-    <div class="logo">🎤</div>
-
-    <h1>BİZİM İLLER</h1>
-    <div class="sub">Memleketin Sesi • Denizli</div>
-
-    <button class="play" onclick="toggleRadio()" id="btn">▶</button>
-
-    <div class="status">
-        <div class="dot"></div>
-        <span id="status">Yayın bekleniyor</span>
-    </div>
-
-    <div class="visualizer">
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-    </div>
-
-</div>
-
-<audio id="radio" src="https://radyo.yayindakiler.com/AudioPlayer/denizlibizimiller"></audio>
-
-<script>
-let isPlaying = false;
-let radio = document.getElementById("radio");
-let btn = document.getElementById("btn");
-let status = document.getElementById("status");
-
-function toggleRadio(){
-    if(!isPlaying){
-        radio.play();
-        btn.innerText = "⏸";
-        status.innerText = "Canlı Yayın Aktif";
-        isPlaying = true;
-    }else{
-        radio.pause();
-        btn.innerText = "▶";
-        status.innerText = "Yayın Durduruldu";
-        isPlaying = false;
-    }
+function setVolume(v){
+    radio.volume = v;
 }
 </script>
 
 </body>
 </html>
-
