@@ -88,18 +88,27 @@ h1{
 
 /* PLAYER */
 .player{
-    border-radius:18px;
+    border-radius:16px;
     overflow:hidden;
-    background:rgba(0,0,0,0.25);
-    border:1px solid rgba(255,255,255,0.05);
-    box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+    background:linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+    border:1px solid rgba(255,255,255,0.08);
+    padding:10px;
+}
+
+.player-header{
+    font-size:11px;
+    letter-spacing:1px;
+    opacity:0.5;
+    text-align:left;
+    margin-bottom:8px;
 }
 
 .player iframe{
     width:100%;
-    height:120px;
+    height:110px;
+    border-radius:10px;
     border:0;
-    filter: grayscale(20%) contrast(110%);
+    background:black;
 }
 
 /* CONTACT */
@@ -107,10 +116,14 @@ h1{
     margin-top:18px;
     padding:14px;
     border-radius:14px;
-    background:rgba(255,255,255,0.04);
-    border:1px solid rgba(255,255,255,0.07);
+    background:linear-gradient(135deg, rgba(120,180,255,0.25), rgba(160,120,255,0.25));
+    border:1px solid rgba(255,255,255,0.12);
     font-size:13px;
     transition:0.3s;
+}
+
+.contact:hover{
+    background:linear-gradient(135deg, rgba(120,180,255,0.35), rgba(160,120,255,0.35));
 }
 
 .contact:hover{
@@ -145,8 +158,8 @@ h1{
         <img src="logo.png" alt="logo">
     </div>
 
-    <h1>BİZİM İLLER</h1>
-    <div class="sub">Tasavvufi Radyo • Sükunetin Sesi</div>
+    <h1>BİZİM İLLER RADYO</h1>
+    <div class="sub">'' 24 Saat Huzur ''</div>
 
     <div class="divider"></div>
 
