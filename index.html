@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bizim İller Radyo 97.3</title>
+<title>Bizim İller Radyo</title>
 
 <style>
 body{
@@ -18,7 +18,6 @@ body{
     overflow:hidden;
 }
 
-/* SOFT GLOW */
 .bg-glow{
     position:absolute;
     width:700px;
@@ -29,161 +28,73 @@ body{
     left:-250px;
 }
 
-/* CARD */
 .card{
-    width:380px;
-    padding:35px;
+    width:400px;
+    padding:30px;
     border-radius:28px;
     background:rgba(255,255,255,0.04);
     border:1px solid rgba(255,255,255,0.08);
     backdrop-filter: blur(25px);
     text-align:center;
     box-shadow:0 25px 70px rgba(0,0,0,0.6);
-    position:relative;
 }
 
-/* LOGO */
 .logo{
-    width:200px;
-    height:200px;
+    width:100px;
+    height:100px;
     margin:auto;
     border-radius:50%;
     overflow:hidden;
     border:1px solid rgba(255,255,255,0.15);
-    background:rgba(255,255,255,0.05);
-    display:flex;
-    align-items:center;
-    justify-content:center;
 }
 
 .logo img{
     width:100%;
-    height:1000%;
+    height:100%;
     object-fit:contain;
+    padding:10px;
 }
 
 h1{
-    margin:18px 0 5px;
+    margin:15px 0 5px;
+    font-size:28px;
     letter-spacing:2px;
-    font-size:32px;
-    font-weight:600;
 }
 
 .sub{
-    opacity:0.55;
     font-size:13px;
-}
-
-/* PLAY */
-.play{
-    margin-top:25px;
-    width:85px;
-    height:85px;
-    border-radius:50%;
-    border:none;
-    font-size:28px;
-    cursor:pointer;
-    background:#ffffff;
-    color:#0a192f;
-    box-shadow:0 10px 30px rgba(0,0,0,0.35);
-    transition:0.25s;
-}
-
-.play:hover{
-    transform:scale(1.08);
-}
-
-/* STATUS */
-.status{
-    margin-top:18px;
-    font-size:12px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:8px;
-    opacity:0.75;
-}
-
-.dot{
-    width:9px;
-    height:9px;
-    border-radius:50%;
-    background:#ff3b3b;
-    animation:pulse 1.2s infinite;
-}
-
-@keyframes pulse{
-    0%,100%{opacity:1}
-    50%{opacity:0.2}
-}
-
-/* VOLUME */
-.volume{
-    margin-top:22px;
-    text-align:left;
-}
-
-.volume label{
-    font-size:12px;
     opacity:0.6;
+    margin-bottom:20px;
 }
 
-input[type=range]{
+/* IFRAME PLAYER */
+.player{
+    border-radius:15px;
+    overflow:hidden;
+    margin-top:10px;
+}
+
+.player iframe{
     width:100%;
-    margin-top:8px;
-    accent-color:#4da3ff;
+    height:120px;
+    border:0;
 }
 
 /* CONTACT */
 .contact{
-    margin-top:18px;
+    margin-top:15px;
     padding:12px;
     border-radius:12px;
     background:rgba(255,255,255,0.05);
     border:1px solid rgba(255,255,255,0.08);
     font-size:13px;
-    opacity:0.85;
 }
 
 .contact span{
-    opacity:0.6;
-    font-size:11px;
     display:block;
-    margin-bottom:5px;
-}
-
-/* VISUALIZER */
-.visualizer{
-    display:flex;
-    justify-content:center;
-    gap:3px;
-    margin-top:20px;
-    height:28px;
-    align-items:flex-end;
-}
-
-.bar{
-    width:3px;
-    height:10px;
-    background:#6fb3ff;
-    border-radius:5px;
+    font-size:11px;
     opacity:0.6;
-    animation:move 1.1s infinite ease-in-out;
-}
-
-.bar:nth-child(2){animation-delay:0.1s}
-.bar:nth-child(3){animation-delay:0.2s}
-.bar:nth-child(4){animation-delay:0.3s}
-.bar:nth-child(5){animation-delay:0.4s}
-.bar:nth-child(6){animation-delay:0.2s}
-.bar:nth-child(7){animation-delay:0.3s}
-.bar:nth-child(8){animation-delay:0.1s}
-.bar:nth-child(9){animation-delay:0.4s}
-.bar:nth-child(10){animation-delay:0.2s}
-
-@keyframes move{
-    0%,100%{height:6px}
-    50%{height:26px}
+    margin-bottom:5px;
 }
 
 </style>
@@ -199,59 +110,19 @@ input[type=range]{
         <img src="logo.png" alt="logo">
     </div>
 
-    <h1>BİZİM İLLER 97.3</h1>
-    <div class="sub">Gönlünüzün Sesi</div>
+    <h1>BİZİM İLLER</h1>
+    <div class="sub">Tasavvufi Radyo • Sükunetin Sesi</div>
 
-    <button class="play" onclick="toggleRadio()" id="btn">▶</button>
-
-    <div class="status">
-        <div class="dot"></div>
-        <span id="status">Yayın bekleniyor</span>
-    </div>
-
-    <div class="volume">
-        <label>Ses Seviyesi</label>
-        <input type="range" min="0" max="1" step="0.01" value="1" oninput="setVolume(this.value)">
+    <div class="player">
+        <iframe src="https://radyo.yayindakiler.com/AudioPlayer/denizlibizimiller?mount=&"></iframe>
     </div>
 
     <div class="contact">
-        <span>Bizimle İletişime Geçebilirisiniz</span>
-        0 (258) 261 3888
-    </div>
-
-    <div class="visualizer">
-        <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
-        <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+        <span>İletişim Numarası</span>
+        0532 123 45 67
     </div>
 
 </div>
-
-<audio id="radio" src="https://radyo.yayindakiler.com/AudioPlayer/denizlibizimiller"></audio>
-
-<script>
-let isPlaying = false;
-let radio = document.getElementById("radio");
-let btn = document.getElementById("btn");
-let status = document.getElementById("status");
-
-function toggleRadio(){
-    if(!isPlaying){
-        radio.play();
-        btn.innerText = "⏸";
-        status.innerText = "Canlı Yayın Aktif";
-        isPlaying = true;
-    }else{
-        radio.pause();
-        btn.innerText = "▶";
-        status.innerText = "Yayın Durduruldu";
-        isPlaying = false;
-    }
-}
-
-function setVolume(v){
-    radio.volume = v;
-}
-</script>
 
 </body>
 </html>
