@@ -2,17 +2,180 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<title>Radyo</title>
+<title>Bizim İller Radyo</title>
+
+<style>
+body {
+    margin:0;
+    font-family:Arial, sans-serif;
+    background: linear-gradient(135deg,#0a3d91,#0f5bd3);
+    color:white;
+}
+
+/* ÜST BAR */
+.topbar {
+    display:flex;
+    justify-content:space-between;
+    padding:20px 40px;
+    font-size:14px;
+    opacity:0.9;
+}
+
+/* ANA ALAN */
+.container {
+    text-align:center;
+    margin-top:60px;
+}
+
+/* LOGO */
+.logo {
+    width:150px;
+    height:150px;
+    border:3px solid white;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin:0 auto 20px;
+    font-size:40px;
+}
+
+/* BAŞLIK */
+h1 {
+    font-size:70px;
+    margin:10px 0;
+    letter-spacing:2px;
+}
+
+.subtitle {
+    font-size:20px;
+    opacity:0.8;
+    margin-bottom:40px;
+}
+
+/* PLAY BUTON */
+.play-btn {
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    background:white;
+    color:#0f5bd3;
+    font-size:40px;
+    border:none;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.play-btn:hover {
+    transform:scale(1.1);
+}
+
+/* STATUS */
+.status {
+    margin-top:20px;
+    font-size:18px;
+    opacity:0.8;
+}
+
+/* ALT KARTLAR */
+.features {
+    display:flex;
+    justify-content:center;
+    gap:60px;
+    margin-top:80px;
+}
+
+.feature {
+    text-align:center;
+    max-width:200px;
+}
+
+.feature h3 {
+    margin-top:10px;
+}
+
+/* TELEFON */
+.phone {
+    margin-top:60px;
+    font-size:28px;
+    font-weight:bold;
+}
+
+/* FOOTER */
+.footer {
+    margin-top:40px;
+    text-align:center;
+    font-size:14px;
+    opacity:0.6;
+}
+</style>
 </head>
 
-<body style="margin:0; background:black;">
+<body>
 
-<iframe 
-width="100%" 
-height="100%" 
-src="https://radyo.yayindakiler.com/AudioPlayer/denizlibizimiller"
-style="border:0; height:100vh;">
-</iframe>
+<div class="topbar">
+    <div>📡 CANLI YAYIN</div>
+    <div>📞 0532 123 45 67</div>
+</div>
+
+<div class="container">
+
+    <div class="logo">🎤</div>
+
+    <h1>BİZİM İLLER</h1>
+    <h2>RADYO</h2>
+
+    <div class="subtitle">Memleketin Sesi, Gönlümüzün Radyosu</div>
+
+    <button class="play-btn" onclick="toggleRadio()">▶</button>
+
+    <div class="status" id="status">Hazır</div>
+
+</div>
+
+<div class="features">
+    <div class="feature">
+        <h3>🎵 Müzik Keyfi</h3>
+        <p>7/24 En güzel şarkılar</p>
+    </div>
+    <div class="feature">
+        <h3>📻 Kesintisiz</h3>
+        <p>HD yayın kalitesi</p>
+    </div>
+    <div class="feature">
+        <h3>👥 Bizimlesin</h3>
+        <p>Bizi dinlediğin için teşekkürler</p>
+    </div>
+</div>
+
+<div class="phone">
+📞 0(258) 261 3888
+</div>
+
+<div class="footer">
+Bizim İller Radyo © 2026
+</div>
+
+<audio id="radio" src="https://radyo.yayindakiler.com/AudioPlayer/denizlibizimiller"></audio>
+
+<script>
+let isPlaying = false;
+let radio = document.getElementById("radio");
+
+function toggleRadio() {
+    if(!isPlaying){
+        radio.play();
+        document.querySelector(".play-btn").innerText = "⏸";
+        document.getElementById("status").innerText = "Canlı Yayın";
+        isPlaying = true;
+    } else {
+        radio.pause();
+        document.querySelector(".play-btn").innerText = "▶";
+        document.getElementById("status").innerText = "Durduruldu";
+        isPlaying = false;
+    }
+}
+</script>
 
 </body>
 </html>
