@@ -7,149 +7,107 @@
 <style>
 body {
     margin:0;
-    font-family:Arial, sans-serif;
-    background: linear-gradient(135deg,#0a3d91,#0f5bd3);
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    background: radial-gradient(circle at top, #1e3c72, #0a192f);
     color:white;
 }
 
-/* ÜST BAR */
-.topbar {
+/* NAVBAR */
+.nav {
     display:flex;
     justify-content:space-between;
-    padding:20px 40px;
+    padding:20px 50px;
     font-size:14px;
-    opacity:0.9;
+    opacity:0.8;
 }
 
 /* ANA ALAN */
-.container {
+.hero {
+    height:80vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
     text-align:center;
-    margin-top:60px;
 }
 
 /* LOGO */
 .logo {
-    width:150px;
-    height:150px;
-    border:3px solid white;
+    width:120px;
+    height:120px;
+    border:2px solid rgba(255,255,255,0.3);
     border-radius:50%;
     display:flex;
-    justify-content:center;
     align-items:center;
-    margin:0 auto 20px;
-    font-size:40px;
+    justify-content:center;
+    font-size:36px;
+    backdrop-filter: blur(10px);
 }
 
 /* BAŞLIK */
 h1 {
-    font-size:70px;
-    margin:10px 0;
-    letter-spacing:2px;
+    font-size:64px;
+    margin:20px 0 10px;
+    letter-spacing:3px;
 }
 
-.subtitle {
-    font-size:20px;
-    opacity:0.8;
+.sub {
+    opacity:0.7;
     margin-bottom:40px;
 }
 
-/* PLAY BUTON */
-.play-btn {
-    width:120px;
-    height:120px;
+/* PLAY */
+.play {
+    width:90px;
+    height:90px;
     border-radius:50%;
-    background:white;
-    color:#0f5bd3;
-    font-size:40px;
     border:none;
+    background:white;
+    color:#0a192f;
+    font-size:30px;
     cursor:pointer;
     transition:0.3s;
 }
 
-.play-btn:hover {
-    transform:scale(1.1);
+.play:hover {
+    transform:scale(1.15);
 }
 
 /* STATUS */
 .status {
     margin-top:20px;
-    font-size:18px;
-    opacity:0.8;
-}
-
-/* ALT KARTLAR */
-.features {
-    display:flex;
-    justify-content:center;
-    gap:60px;
-    margin-top:80px;
-}
-
-.feature {
-    text-align:center;
-    max-width:200px;
-}
-
-.feature h3 {
-    margin-top:10px;
-}
-
-/* TELEFON */
-.phone {
-    margin-top:60px;
-    font-size:28px;
-    font-weight:bold;
-}
-
-/* FOOTER */
-.footer {
-    margin-top:40px;
-    text-align:center;
     font-size:14px;
     opacity:0.6;
+}
+
+/* ALT BİLGİ */
+.footer {
+    text-align:center;
+    padding:30px;
+    opacity:0.5;
+    font-size:13px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="topbar">
-    <div>📡 CANLI YAYIN</div>
+<div class="nav">
+    <div>📡 CANLI</div>
     <div>📞 0532 123 45 67</div>
 </div>
 
-<div class="container">
+<div class="hero">
 
     <div class="logo">🎤</div>
 
     <h1>BİZİM İLLER</h1>
-    <h2>RADYO</h2>
+    <div class="sub">Memleketin Sesi</div>
 
-    <div class="subtitle">Memleketin Sesi, Gönlümüzün Radyosu</div>
-
-    <button class="play-btn" onclick="toggleRadio()">▶</button>
+    <button class="play" onclick="toggleRadio()">▶</button>
 
     <div class="status" id="status">Hazır</div>
 
-</div>
-
-<div class="features">
-    <div class="feature">
-        <h3>🎵 Müzik Keyfi</h3>
-        <p>7/24 En güzel şarkılar</p>
-    </div>
-    <div class="feature">
-        <h3>📻 Kesintisiz</h3>
-        <p>HD yayın kalitesi</p>
-    </div>
-    <div class="feature">
-        <h3>👥 Bizimlesin</h3>
-        <p>Bizi dinlediğin için teşekkürler</p>
-    </div>
-</div>
-
-<div class="phone">
-📞 0(258) 261 3888
 </div>
 
 <div class="footer">
@@ -165,12 +123,12 @@ let radio = document.getElementById("radio");
 function toggleRadio() {
     if(!isPlaying){
         radio.play();
-        document.querySelector(".play-btn").innerText = "⏸";
+        document.querySelector(".play").innerText = "⏸";
         document.getElementById("status").innerText = "Canlı Yayın";
         isPlaying = true;
     } else {
         radio.pause();
-        document.querySelector(".play-btn").innerText = "▶";
+        document.querySelector(".play").innerText = "▶";
         document.getElementById("status").innerText = "Durduruldu";
         isPlaying = false;
     }
