@@ -186,13 +186,14 @@ h1{
 </div>
 
 <!-- GİZLİ OTOMATİK YAYIN -->
-<audio id="radio">
-    <source src="https://radyo.yayindakiler.com/AudioPlayer/denizlibizimiller">
+<audio id="radio" autoplay controls hidden>
+    <source src="https://radyo.yayindakiler.com/listen/denizlibizimiller/radio.mp3" type="audio/mpeg">
 </audio>
 
 <script>
 const radio = document.getElementById("radio");
-radio.volume = 100;
+
+radio.volume = 1;
 
 document.body.addEventListener("click", () => {
     radio.play();
