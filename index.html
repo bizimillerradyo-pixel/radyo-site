@@ -16,64 +16,126 @@ body{
     display:flex;
     align-items:center;
     justify-content:center;
+    overflow:hidden;
 }
 
-/* KART */
+/* ARKA PLAN PARLAMA */
+.bg-glow{
+    position:absolute;
+    width:800px;
+    height:800px;
+    background:rgba(120,170,255,0.06);
+    filter:blur(160px);
+    top:-300px;
+    left:-300px;
+}
+
+/* ANA KART */
 .card{
     width:420px;
-    padding:35px;
-    border-radius:30px;
+    padding:35px 30px;
+    border-radius:32px;
     background:rgba(255,255,255,0.03);
-    border:1px solid rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.06);
+    backdrop-filter: blur(30px);
     text-align:center;
+    box-shadow:0 30px 90px rgba(0,0,0,0.7);
+    position:relative;
 }
 
 /* LOGO */
 .logo{
-    width:100px;
-    height:100px;
+    width:110px;
+    height:110px;
     margin:auto;
-}
-
-.logo img{
-    width:100%;
-}
-
-/* LIVE BUTTON */
-.live-box{
-    margin-top:20px;
-    padding:22px;
-    border-radius:16px;
-    background:linear-gradient(135deg, rgba(120,180,255,0.25), rgba(160,120,255,0.25));
-    cursor:pointer;
-}
-
-/* POPUP PLAYER */
-.player-overlay{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.85);
-    display:none;
+    border-radius:50%;
+    overflow:hidden;
+    border:1px solid rgba(255,255,255,0.15);
+    background:rgba(255,255,255,0.04);
+    display:flex;
     align-items:center;
     justify-content:center;
 }
 
-.player-box{
-    width:90%;
-    max-width:500px;
-    background:#111;
-    border-radius:16px;
-    overflow:hidden;
+.logo img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    padding:12px;
 }
 
-.close{
+/* BAŞLIK */
+h1{
+    margin:18px 0 6px;
+    font-size:30px;
+    letter-spacing:3px;
+    font-weight:500;
+}
+
+.sub{
+    font-size:13px;
+    opacity:0.5;
+    margin-bottom:20px;
+}
+
+/* ÇİZGİ */
+.divider{
+    width:40px;
+    height:2px;
+    background:rgba(255,255,255,0.2);
+    margin:10px auto 20px;
+    border-radius:2px;
+}
+
+/* PLAYER */
+.player{
+    border-radius:16px;
+    overflow:hidden;
+    background:linear-gradient(
+        180deg,
+        rgba(255,255,255,0.04),
+        rgba(255,255,255,0.01)
+    );
+    border:1px solid rgba(255,255,255,0.08);
     padding:10px;
-    text-align:right;
-    cursor:pointer;
+}
+
+.player iframe{
+    width:100%;
+    height:110px;
+    border-radius:10px;
+    border:0;
+    background:black;
+}
+
+/* İLETİŞİM */
+.contact{
+    margin-top:18px;
+    padding:14px;
+    border-radius:14px;
+    background:linear-gradient(
+        135deg,
+        rgba(120,180,255,0.25),
+        rgba(160,120,255,0.25)
+    );
+    border:1px solid rgba(255,255,255,0.12);
+    font-size:13px;
     color:white;
+}
+
+.contact span{
+    display:block;
+    font-size:11px;
+    opacity:0.7;
+    margin-bottom:6px;
+    letter-spacing:1px;
+}
+
+/* FOOTER */
+.footer{
+    margin-top:15px;
+    font-size:11px;
+    opacity:0.35;
 }
 
 </style>
@@ -81,48 +143,36 @@ body{
 
 <body>
 
+<div class="bg-glow"></div>
+
 <div class="card">
 
     <div class="logo">
-        <img src="logo.png">
+        <img src="logo.png" alt="logo">
     </div>
 
     <h1>BİZİM İLLER RADYO</h1>
 
-    <div class="live-box" onclick="openPlayer()">
-        CANLI YAYIN AKTİF (TIKLA DİNLE)
+    <div class="sub">
+        '' 24 Saat Huzur ''
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="player">
+        <iframe src="https://radyo.yayindakiler.com/AudioPlayer/denizlibizimiller?autoplay=1"></iframe>
+    </div>
+
+    <div class="contact">
+        <span>İLETİŞİM</span>
+        <strong>Düzenleme</strong>
+    </div>
+
+    <div class="footer">
+        Bizim İller Radyo © Biz Bize Ajans 2026
     </div>
 
 </div>
-
-<!-- POPUP PLAYER -->
-<div class="player-overlay" id="overlay">
-
-    <div class="player-box">
-
-        <div class="close" onclick="closePlayer()">KAPAT ✖</div>
-
-        <iframe 
-        width="100%" 
-        height="300"
-        src="https://radyo.yayindakiler.com/AudioPlayer/denizlibizimiller?mount=&">
-        </iframe>
-
-    </div>
-
-</div>
-
-<script>
-
-function openPlayer(){
-    document.getElementById("overlay").style.display = "flex";
-}
-
-function closePlayer(){
-    document.getElementById("overlay").style.display = "none";
-}
-
-</script>
 
 </body>
 </html>
