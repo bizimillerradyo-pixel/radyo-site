@@ -185,20 +185,35 @@ h1{
 
 </div>
 
-<!-- GİZLİ OTOMATİK YAYIN -->
-<audio id="radio" autoplay controls hidden>
+<div class="live-box" onclick="startRadio()" style="cursor:pointer;">
+    <div class="live-status">
+        <div class="dot"></div>
+        CANLI YAYIN AKTİF (BAŞLATMAK İÇİN TIKLA)
+    </div>
+</div>
+
+<audio id="radio">
     <source src="https://radyo.yayindakiler.com/listen/denizlibizimiller/radio.mp3" type="audio/mpeg">
 </audio>
 
 <script>
+let started = false;
 const radio = document.getElementById("radio");
+radio.volume = 1;
 
-radio.volume = 100;
+function startRadio(){
+    if(!started){
+        radio.play();
+        started = true;
 
-document.body.addEventListener("click", () => {
-    radio.play();
-}, { once:true });
+        // yazıyı güncelle
+        document.querySelector(".live-status").innerHTML = `
+            <div class="dot"></div>
+            CANLI YAYIN AKTİF
+        `;
+    }
+}
 </script>
-
+    
 </body>
 </html>
