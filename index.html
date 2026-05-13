@@ -6,6 +6,7 @@
 <title>Bizim İller Radyo</title>
 
 <style>
+
 body{
     margin:0;
     font-family:-apple-system, BlinkMacSystemFont, sans-serif;
@@ -18,7 +19,7 @@ body{
     overflow:hidden;
 }
 
-/* SOFT AMBIENT GLOW */
+/* ARKA PLAN PARLAMA */
 .bg-glow{
     position:absolute;
     width:800px;
@@ -29,7 +30,7 @@ body{
     left:-300px;
 }
 
-/* PREMIUM CARD */
+/* ANA KART */
 .card{
     width:420px;
     padding:35px 30px;
@@ -63,7 +64,7 @@ body{
     padding:12px;
 }
 
-/* TITLE */
+/* BAŞLIK */
 h1{
     margin:18px 0 6px;
     font-size:30px;
@@ -77,7 +78,7 @@ h1{
     margin-bottom:20px;
 }
 
-/* DIVIDER */
+/* ÇİZGİ */
 .divider{
     width:40px;
     height:2px;
@@ -90,17 +91,13 @@ h1{
 .player{
     border-radius:16px;
     overflow:hidden;
-    background:linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+    background:linear-gradient(
+        180deg,
+        rgba(255,255,255,0.04),
+        rgba(255,255,255,0.01)
+    );
     border:1px solid rgba(255,255,255,0.08);
     padding:10px;
-}
-
-.player-header{
-    font-size:11px;
-    letter-spacing:1px;
-    opacity:0.5;
-    text-align:left;
-    margin-bottom:8px;
 }
 
 .player iframe{
@@ -111,37 +108,30 @@ h1{
     background:black;
 }
 
-/* CONTACT */
-.contact{
-    color: white;
-}
+/* İLETİŞİM */
 .contact{
     margin-top:18px;
     padding:14px;
     border-radius:14px;
-    background:linear-gradient(135deg, rgba(120,180,255,0.25), rgba(160,120,255,0.25));
+    background:linear-gradient(
+        135deg,
+        rgba(120,180,255,0.25),
+        rgba(160,120,255,0.25)
+    );
     border:1px solid rgba(255,255,255,0.12);
     font-size:13px;
-    transition:0.3s;
-}
-
-.contact:hover{
-    background:linear-gradient(135deg, rgba(120,180,255,0.35), rgba(160,120,255,0.35));
-}
-
-.contact:hover{
-    background:rgba(255,255,255,0.07);
+    color:white;
 }
 
 .contact span{
     display:block;
     font-size:11px;
-    opacity:0.5;
+    opacity:0.7;
     margin-bottom:6px;
     letter-spacing:1px;
 }
 
-/* FOOT NOTE */
+/* FOOTER */
 .footer{
     margin-top:15px;
     font-size:11px;
@@ -161,21 +151,26 @@ h1{
         <img src="logo.png" alt="logo">
     </div>
 
-    <h1>BİZİM İLLER RADYO</h1>
-    <div class="sub">'' 24 Saat Huzur ''</div>
+    <h1>BİZİM İLLER</h1>
+
+    <div class="sub">
+        ''24 Saat Huzur''
+    </div>
 
     <div class="divider"></div>
 
     <div class="player">
-        <iframe src="https://radyo.yayindakiler.com/AudioPlayer/denizlibizimiller?mount=&"></iframe>
+        <iframe src="https://radyo.yayindakiler.com/AudioPlayer/denizlibizimiller?autoplay=1"></iframe>
     </div>
 
-  <div class="contact">
-    <span>İLETİŞİM</span>
-    <strong>0 (258) 261 38 88</strong>
-</div>
+    <div class="contact">
+        <span>İLETİŞİM</span>
+        <strong>0532 123 45 67</strong>
+    </div>
 
-    <div class="footer">Bizim İller Radyo © 2026 Biz Bize Ajans</div>
+    <div class="footer">
+        Bizim İller Radyo © 2026
+    </div>
 
 </div>
 
