@@ -176,7 +176,7 @@ h1{
 
     <div class="contact">
         <span>İLETİŞİM</span>
-        <strong>0532 123 45 67</strong>
+        <strong>0532 127</strong>
     </div>
 
     <div class="footer">
@@ -186,9 +186,18 @@ h1{
 </div>
 
 <!-- GİZLİ OTOMATİK YAYIN -->
-<audio autoplay>
+<audio id="radio">
     <source src="https://radyo.yayindakiler.com/AudioPlayer/denizlibizimiller">
 </audio>
+
+<script>
+const radio = document.getElementById("radio");
+radio.volume = 1;
+
+document.body.addEventListener("click", () => {
+    radio.play();
+}, { once:true });
+</script>
 
 </body>
 </html>
